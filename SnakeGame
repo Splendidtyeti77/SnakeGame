@@ -1,0 +1,120 @@
+
+from gturtle import *
+frameSize = 500
+frame = TurtleFrame()
+appleTurtle= None
+FrameTurtle = Turtle(frame)
+
+KEY_CODE_LEFT = 37
+KEY_CODE_RIGHT = 39
+KEY_CODE_DOWN = 40
+KEY_CODE_UP = 38
+KEY_CODE_ENTER = 10
+ 
+
+frameSize = 500
+   
+
+point = 0 
+highscore = 0 
+lastKey = None
+name = S = inputInt, "Username"
+
+
+SnakeTurtle = None
+frameTurtle = None
+appleTurtle = None
+stoneTurtles = []
+
+
+
+def Playground():
+    
+    FrameTurtle.hideTurtle()
+    FrameTurtle.penUp()
+    FrameTurtle.fd(250)
+
+    FrameTurtle.penDown()
+    FrameTurtle.startPath()
+    FrameTurtle.setFillColor("grey")
+    FrameTurtle.setPenColor("black")
+    FrameTurtle.setPenWidth(10)
+    FrameTurtle.rt(90)
+    FrameTurtle.fd(250)
+    for i in range(3):
+        FrameTurtle.rt(90)
+        FrameTurtle.fd(500)
+    FrameTurtle.rt(90)
+    FrameTurtle.fd(250)
+    FrameTurtle.fillPath()
+
+def onKeyPressed(event):
+    global lastKey
+    
+    lastKey = event.getKeyCode() 
+    print "Key pressed: " + str(event.getKeyCode())
+    
+    if lastKey == KEY_CODE_LEFT:
+        SnakeTurtle.setHeading(-90) 
+    elif lastKey == KEY_CODE_RIGHT:
+        SnakeTurtle.setHeading(90) 
+    elif lastKey == KEY_CODE_UP:
+        SnakeTurtle.setHeading(0)
+    elif lastKey == KEY_CODE_DOWN:
+        SnakeTurtle.setHeading(180) 
+SnakeTurtle = Turtle(frame, "C:\Users\(ur username and a file named snake.png\Downloads\snake.png",keyPressed = onKeyPressed) #Please check the C:/Users/(What's inside here---)
+
+
+def SnakeTurtleIsAlive():
+    global points
+    
+    x = SnakeTurtle.getX()
+    y = SnakeTurtle.getY()
+
+    
+    if x < -250:        
+        print "The Game is over"
+        print "Your Score is" , points
+        return False
+    elif x > 250:
+        print "The Game is over"
+        print "Your Score is" , points
+        return False
+    elif y < -250:
+        print "The Game is over"
+        print "Your Score is" , points
+        return False
+    elif y > 250:
+        print "The Game is over"
+        print "Your Score is" , points
+        return False
+    else:
+        return True
+
+def waitForInputName(s):
+    s = InputInt("Create a Username")
+    
+    
+
+
+KEY_CODE_LEFT = 37
+KEY_CODE_RIGHT = 39
+KEY_CODE_UP = 38
+KEY_CODE_DOWN = 40
+KEY_CODE_ENTER = 10
+
+def onKeyPressed(key):
+   if key == KEY_CODE_LEFT:
+      SnakeTurtle.setHeading(-90)
+   elif key == KEY_CODE_RIGHT:
+      SnakeTurtle.setHeading(90)
+   elif key == KEY_CODE_UP:
+      SnakeTurtle.setHeading(0)
+   elif key == KEY_CODE_DOWN:
+      SnakeTurtle.setHeading(180)
+SnakeTurtle = Turtle(frame, keyPressed = onKeyPressed)
+isAlive = True
+while True:
+    SnakeTurtle.forward(10)
+    
+    isAlive = SnakeTurtleIsAlive
