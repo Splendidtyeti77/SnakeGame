@@ -118,3 +118,5 @@ while True:
     SnakeTurtle.forward(10)
     
     isAlive = SnakeTurtleIsAlive
+#And Again 
+# Credits: Splendidtyeti77
